@@ -257,3 +257,17 @@ footer p:first-child {
     font-size: 1.1rem;
     letter-spacing: 2px;
 }
+
+/* ===== LOGO DEL HEADER ===== */
+.logo {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--dorado);
+    background-color: var(--negro);
+}
+
+}
+}
+}
