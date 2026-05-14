@@ -1,0 +1,259 @@
+/* ===== VARIABLES DE COLOR ===== */
+/* Acá definimos los colores de PetFlow para usarlos en todo el archivo */
+:root {
+    --negro: #0a0a0a;
+    --dorado: #d4af37;
+    --dorado-claro: #f4d03f;
+    --blanco: #ffffff;
+    --gris-claro: #cccccc;
+}
+
+/* ===== ESTILOS BASE ===== */
+/* Reset: eliminar márgenes y padding por defecto del navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo del cuerpo de la página */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--negro);
+    color: var(--blanco);
+    line-height: 1.6;
+}
+
+/* ===== HEADER (barra superior) ===== */
+header {
+    background-color: #000000;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--dorado);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* El logo del header */
+header h2 {
+    color: var(--dorado);
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+}
+
+/* La lista de navegación: la ponemos horizontal */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+/* Los links del menú */
+nav a {
+    color: var(--blanco);
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+/* Efecto cuando pasás el mouse por un link */
+nav a:hover {
+    color: var(--dorado);
+}
+
+/* ===== SECCION HERO (inicio) ===== */
+#inicio {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 40px;
+}
+
+#inicio h1 {
+    font-size: 3.5rem;
+    color: var(--dorado);
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+#inicio p {
+    font-size: 1.2rem;
+    color: var(--gris-claro);
+    max-width: 700px;
+    margin-bottom: 40px;
+}
+
+/* ===== BOTONES ===== */
+button {
+    background-color: var(--dorado);
+    color: var(--negro);
+    border: none;
+    padding: 15px 40px;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--dorado-claro);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+}
+
+/* ===== SECCIONES GENERALES ===== */
+section {
+    padding: 80px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Títulos h2 de las secciones */
+section h2 {
+    font-size: 2.5rem;
+    color: var(--dorado);
+    text-align: center;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+/* Línea decorativa debajo de los títulos h2 */
+section h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--dorado);
+}
+
+/* Párrafos dentro de las secciones */
+section p {
+    font-size: 1.05rem;
+    color: var(--gris-claro);
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+/* ===== SECCION PRODUCTOS ===== */
+#productos ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+#productos li {
+    background-color: #1a1a1a;
+    padding: 30px;
+    border-radius: 8px;
+    border-left: 4px solid var(--dorado);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#productos li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+}
+
+#productos li strong {
+    color: var(--dorado);
+    font-size: 1.3rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* ===== SECCION SOBRE NOSOTROS ===== */
+#sobre-nosotros p {
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ===== SECCION CONTACTO Y FORMULARIO ===== */
+#contacto p {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#contacto form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#contacto label {
+    color: var(--dorado);
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: -10px;
+}
+
+#contacto input,
+#contacto textarea {
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    color: var(--blanco);
+    padding: 15px;
+    font-size: 1rem;
+    font-family: inherit;
+    border-radius: 4px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#contacto input:focus,
+#contacto textarea:focus {
+    outline: none;
+    border-color: var(--dorado);
+    box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+}
+
+#contacto textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+#contacto button {
+    align-self: center;
+    margin-top: 10px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background-color: #000000;
+    border-top: 2px solid var(--dorado);
+    padding: 40px;
+    text-align: center;
+    margin-top: 60px;
+}
+
+footer p {
+    color: var(--gris-claro);
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+footer p:first-child {
+    color: var(--dorado);
+    font-weight: bold;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+}
