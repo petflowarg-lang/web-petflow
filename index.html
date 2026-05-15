@@ -20,18 +20,33 @@
             </ul>
         </nav>
     </header>
+
+    <!-- HERO con imagen de fondo -->
     <section id="inicio">
-        <h1>Lo mejor para tu compañero de 4 patas</h1>
-        <p>Bienvenido a PetFlow Arg, accesorios y juguetes premium para perros con envíos a toda Argentina.</p>
-        <button>Ver productos</button>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Lo mejor para tu compañero de 4 patas</h1>
+            <p>Bienvenido a PetFlow Arg, accesorios y juguetes premium para perros con envíos a toda Argentina.</p>
+            <button onclick="document.getElementById('productos').scrollIntoView({behavior:'smooth'})">Ver
+                productos</button>
+        </div>
     </section>
 
+    <!-- PRODUCTOS con imágenes en las cards -->
     <section id="productos">
         <h2>Nuestros productos</h2>
         <p>En PetFlow Arg tenemos dos grandes categorías:</p>
         <ul>
-            <li><strong>Accesorios:</strong> collares, correas, camas y más.</li>
-            <li><strong>Juguetes:</strong> entretenimiento para todos los tamaños de perro.</li>
+            <li>
+                <img src="img/accesorios.jpg" alt="Accesorios para perros" class="producto-img">
+                <strong>Accesorios</strong>
+                Collares, correas, camas y más. Todo lo que tu perro necesita para estar cómodo y seguro.
+            </li>
+            <li>
+                <img src="img/juguetes.jpg" alt="Juguetes para perros" class="producto-img">
+                <strong>Juguetes</strong>
+                Entretenimiento para todos los tamaños de perro. ¡Diversión garantizada!
+            </li>
         </ul>
     </section>
 

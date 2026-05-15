@@ -1,5 +1,4 @@
 /* ===== VARIABLES DE COLOR ===== */
-/* Acá definimos los colores de PetFlow para usarlos en todo el archivo */
 :root {
     --negro: #0a0a0a;
     --dorado: #d4af37;
@@ -9,14 +8,12 @@
 }
 
 /* ===== ESTILOS BASE ===== */
-/* Reset: eliminar márgenes y padding por defecto del navegador */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Estilo del cuerpo de la página */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--negro);
@@ -24,7 +21,7 @@ body {
     line-height: 1.6;
 }
 
-/* ===== HEADER (barra superior) ===== */
+/* ===== HEADER ===== */
 header {
     background-color: #000000;
     padding: 20px 40px;
@@ -37,21 +34,18 @@ header {
     z-index: 100;
 }
 
-/* El logo del header */
 header h2 {
     color: var(--dorado);
     font-size: 1.8rem;
     letter-spacing: 2px;
 }
 
-/* La lista de navegación: la ponemos horizontal */
 nav ul {
     list-style: none;
     display: flex;
     gap: 30px;
 }
 
-/* Los links del menú */
 nav a {
     color: var(--blanco);
     text-decoration: none;
@@ -60,12 +54,11 @@ nav a {
     transition: color 0.3s ease;
 }
 
-/* Efecto cuando pasás el mouse por un link */
 nav a:hover {
     color: var(--dorado);
 }
 
-/* ===== SECCION HERO (inicio) ===== */
+/* ===== HERO (inicio) con imagen de fondo ===== */
 #inicio {
     min-height: 80vh;
     display: flex;
@@ -74,6 +67,34 @@ nav a:hover {
     align-items: center;
     text-align: center;
     padding: 60px 40px;
+    position: relative;
+
+    /* Imagen de fondo */
+    background-image: url('img/hero.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Capa oscura encima de la imagen para que el texto se lea bien */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+/* El contenido del hero va encima del overlay */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
 #inicio h1 {
@@ -118,7 +139,12 @@ section {
     margin: 0 auto;
 }
 
-/* Títulos h2 de las secciones */
+/* El hero ocupa todo el ancho, no el max-width */
+#inicio {
+    max-width: 100%;
+    padding: 0;
+}
+
 section h2 {
     font-size: 2.5rem;
     color: var(--dorado);
@@ -129,7 +155,6 @@ section h2 {
     padding-bottom: 15px;
 }
 
-/* Línea decorativa debajo de los títulos h2 */
 section h2::after {
     content: "";
     position: absolute;
@@ -141,7 +166,6 @@ section h2::after {
     background-color: var(--dorado);
 }
 
-/* Párrafos dentro de las secciones */
 section p {
     font-size: 1.05rem;
     color: var(--gris-claro);
@@ -149,7 +173,7 @@ section p {
     line-height: 1.8;
 }
 
-/* ===== SECCION PRODUCTOS ===== */
+/* ===== PRODUCTOS ===== */
 #productos ul {
     list-style: none;
     display: grid;
@@ -160,10 +184,11 @@ section p {
 
 #productos li {
     background-color: #1a1a1a;
-    padding: 30px;
     border-radius: 8px;
     border-left: 4px solid var(--dorado);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    padding: 0;
 }
 
 #productos li:hover {
@@ -171,14 +196,39 @@ section p {
     box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
 }
 
+/* Imagen del producto */
+.producto-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+#productos li:hover .producto-img {
+    transform: scale(1.04);
+}
+
+/* Texto de la card debajo de la imagen */
 #productos li strong {
     color: var(--dorado);
     font-size: 1.3rem;
     display: block;
     margin-bottom: 10px;
+    padding: 20px 25px 0 25px;
 }
 
-/* ===== SECCION SOBRE NOSOTROS ===== */
+#productos li p,
+#productos li {
+    color: var(--gris-claro);
+    font-size: 1rem;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 25px;
+    line-height: 1.6;
+}
+
+/* ===== SOBRE NOSOTROS ===== */
 #sobre-nosotros p {
     text-align: center;
     max-width: 800px;
@@ -186,7 +236,7 @@ section p {
     margin-right: auto;
 }
 
-/* ===== SECCION CONTACTO Y FORMULARIO ===== */
+/* ===== CONTACTO ===== */
 #contacto p {
     text-align: center;
     margin-bottom: 30px;
@@ -258,7 +308,7 @@ footer p:first-child {
     letter-spacing: 2px;
 }
 
-/* ===== LOGO DEL HEADER ===== */
+/* ===== LOGO ===== */
 .logo {
     height: 60px;
     width: 60px;
@@ -268,13 +318,9 @@ footer p:first-child {
     background-color: var(--negro);
 }
 
-/* ============================================
-   RESPONSIVE - TABLETS Y CELULARES
-   Se aplica cuando la pantalla mide menos de 768px
-   ============================================ */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
 
-    /* ===== HEADER ===== */
     header {
         flex-direction: column;
         padding: 15px 20px;
@@ -286,7 +332,6 @@ footer p:first-child {
         width: 50px;
     }
 
-    /* Menú horizontal pero más chico */
     nav ul {
         gap: 15px;
         flex-wrap: wrap;
@@ -295,12 +340,6 @@ footer p:first-child {
 
     nav a {
         font-size: 0.9rem;
-    }
-
-    /* ===== HERO ===== */
-    #inicio {
-        min-height: 70vh;
-        padding: 40px 20px;
     }
 
     #inicio h1 {
@@ -312,7 +351,10 @@ footer p:first-child {
         font-size: 1rem;
     }
 
-    /* ===== SECCIONES GENERALES ===== */
+    .hero-content {
+        padding: 40px 20px;
+    }
+
     section {
         padding: 50px 20px;
     }
@@ -321,19 +363,19 @@ footer p:first-child {
         font-size: 1.8rem;
     }
 
-    /* ===== PRODUCTOS ===== */
-    /* En celular: una sola columna, no dos */
     #productos ul {
         grid-template-columns: 1fr;
         gap: 20px;
     }
 
-    /* ===== FORMULARIO ===== */
+    .producto-img {
+        height: 180px;
+    }
+
     #contacto form {
         max-width: 100%;
     }
 
-    /* ===== FOOTER ===== */
     footer {
         padding: 30px 20px;
     }
