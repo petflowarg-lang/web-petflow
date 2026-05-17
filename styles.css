@@ -34,12 +34,6 @@ header {
     z-index: 100;
 }
 
-header h2 {
-    color: var(--dorado);
-    font-size: 1.8rem;
-    letter-spacing: 2px;
-}
-
 nav ul {
     list-style: none;
     display: flex;
@@ -58,7 +52,7 @@ nav a:hover {
     color: var(--dorado);
 }
 
-/* ===== HERO (inicio) con imagen de fondo ===== */
+/* ===== HERO ===== */
 #inicio {
     min-height: 80vh;
     display: flex;
@@ -66,17 +60,15 @@ nav a:hover {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 60px 40px;
     position: relative;
-
-    /* Imagen de fondo */
+    max-width: 100%;
+    padding: 0;
     background-image: url('img/hero.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-/* Capa oscura encima de la imagen para que el texto se lea bien */
 .hero-overlay {
     position: absolute;
     top: 0;
@@ -87,7 +79,6 @@ nav a:hover {
     z-index: 1;
 }
 
-/* El contenido del hero va encima del overlay */
 .hero-content {
     position: relative;
     z-index: 2;
@@ -95,12 +86,12 @@ nav a:hover {
     flex-direction: column;
     align-items: center;
     gap: 20px;
+    padding: 60px 40px;
 }
 
 #inicio h1 {
     font-size: 3.5rem;
     color: var(--dorado);
-    margin-bottom: 20px;
     letter-spacing: 2px;
 }
 
@@ -108,7 +99,6 @@ nav a:hover {
     font-size: 1.2rem;
     color: var(--gris-claro);
     max-width: 700px;
-    margin-bottom: 40px;
 }
 
 /* ===== BOTONES ===== */
@@ -137,12 +127,6 @@ section {
     padding: 80px 40px;
     max-width: 1200px;
     margin: 0 auto;
-}
-
-/* El hero ocupa todo el ancho, no el max-width */
-#inicio {
-    max-width: 100%;
-    padding: 0;
 }
 
 section h2 {
@@ -196,7 +180,6 @@ section p {
     box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
 }
 
-/* Imagen del producto */
 .producto-img {
     width: 100%;
     height: 220px;
@@ -209,23 +192,109 @@ section p {
     transform: scale(1.04);
 }
 
-/* Texto de la card debajo de la imagen */
-#productos li strong {
-    color: var(--dorado);
-    font-size: 1.3rem;
-    display: block;
-    margin-bottom: 10px;
-    padding: 20px 25px 0 25px;
+/* Info dentro de la card */
+.producto-info {
+    padding: 20px 25px 25px 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-#productos li p,
-#productos li {
+.producto-info strong {
+    color: var(--dorado);
+    font-size: 1.3rem;
+}
+
+.producto-info p {
     color: var(--gris-claro);
     font-size: 1rem;
-    padding-left: 25px;
-    padding-right: 25px;
-    padding-bottom: 25px;
-    line-height: 1.6;
+    margin: 0;
+}
+
+/* Precio */
+.precio {
+    color: var(--dorado-claro);
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Botón consultar por WhatsApp dentro de la card */
+.btn-consultar {
+    display: inline-block;
+    margin-top: 8px;
+    background-color: #25d366;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-consultar:hover {
+    background-color: #1ebe5b;
+    transform: translateY(-2px);
+}
+
+/* ===== GALERÍA ===== */
+#galeria {
+    max-width: 1200px;
+}
+
+#galeria p {
+    text-align: center;
+}
+
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.galeria-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+    aspect-ratio: 1 / 1;
+}
+
+.galeria-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.galeria-item:hover img {
+    transform: scale(1.08);
+}
+
+/* Texto que aparece al pasar el mouse */
+.galeria-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: var(--dorado);
+    font-weight: bold;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    padding: 20px 15px 15px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.galeria-item:hover .galeria-overlay {
+    opacity: 1;
 }
 
 /* ===== SOBRE NOSOTROS ===== */
@@ -318,6 +387,44 @@ footer p:first-child {
     background-color: var(--negro);
 }
 
+/* ===== BOTÓN FLOTANTE DE WHATSAPP ===== */
+.btn-whatsapp {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;
+    width: 60px;
+    height: 60px;
+    background-color: #25d366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-whatsapp:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.7);
+}
+
+.btn-whatsapp img {
+    width: 35px;
+    height: 35px;
+}
+
+/* Animación de pulso para llamar la atención */
+@keyframes pulso {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+.btn-whatsapp {
+    animation: pulso 2s infinite;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
 
@@ -372,11 +479,27 @@ footer p:first-child {
         height: 180px;
     }
 
+    .galeria-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
     #contacto form {
         max-width: 100%;
     }
 
     footer {
         padding: 30px 20px;
+    }
+
+    .btn-whatsapp {
+        bottom: 20px;
+        right: 20px;
+        width: 52px;
+        height: 52px;
+    }
+
+    .btn-whatsapp img {
+        width: 28px;
+        height: 28px;
     }
 }

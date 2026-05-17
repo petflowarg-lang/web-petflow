@@ -15,6 +15,7 @@
             <ul>
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#productos">Productos</a></li>
+                <li><a href="#galeria">Galería</a></li>
                 <li><a href="#sobre-nosotros">Sobre nosotros</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
@@ -27,27 +28,54 @@
         <div class="hero-content">
             <h1>Lo mejor para tu compañero de 4 patas</h1>
             <p>Bienvenido a PetFlow Arg, accesorios y juguetes premium para perros con envíos a toda Argentina.</p>
-            <button onclick="document.getElementById('productos').scrollIntoView({behavior:'smooth'})">Ver
-                productos</button>
+            <button onclick="document.getElementById('productos').scrollIntoView({behavior:'smooth'})">Ver productos</button>
         </div>
     </section>
 
-    <!-- PRODUCTOS con imágenes en las cards -->
+    <!-- PRODUCTOS con imágenes y precios -->
     <section id="productos">
         <h2>Nuestros productos</h2>
         <p>En PetFlow Arg tenemos dos grandes categorías:</p>
         <ul>
             <li>
                 <img src="img/accesorios.jpg" alt="Accesorios para perros" class="producto-img">
-                <strong>Accesorios</strong>
-                Collares, correas, camas y más. Todo lo que tu perro necesita para estar cómodo y seguro.
+                <div class="producto-info">
+                    <strong>Accesorios</strong>
+                    <p>Collares, correas, camas y más. Todo lo que tu perro necesita para estar cómodo y seguro.</p>
+                    <span class="precio">Desde $5.000</span>
+                    <a class="btn-consultar" href="https://wa.me/542235374072?text=Hola!%20Quiero%20consultar%20por%20accesorios%20🐾" target="_blank">Consultar precio</a>
+                </div>
             </li>
             <li>
                 <img src="img/juguetes.jpg" alt="Juguetes para perros" class="producto-img">
-                <strong>Juguetes</strong>
-                Entretenimiento para todos los tamaños de perro. ¡Diversión garantizada!
+                <div class="producto-info">
+                    <strong>Juguetes</strong>
+                    <p>Entretenimiento para todos los tamaños de perro. ¡Diversión garantizada!</p>
+                    <span class="precio">Desde $3.500</span>
+                    <a class="btn-consultar" href="https://wa.me/542235374072?text=Hola!%20Quiero%20consultar%20por%20juguetes%20🐾" target="_blank">Consultar precio</a>
+                </div>
             </li>
         </ul>
+    </section>
+
+    <!-- GALERÍA DE FOTOS -->
+    <section id="galeria">
+        <h2>Galería</h2>
+        <p>Algunos de nuestros productos favoritos 🐾</p>
+        <div class="galeria-grid">
+            <div class="galeria-item">
+                <img src="img/accesorios.jpg" alt="Accesorios">
+                <div class="galeria-overlay">Accesorios</div>
+            </div>
+            <div class="galeria-item">
+                <img src="img/juguetes.jpg" alt="Juguetes">
+                <div class="galeria-overlay">Juguetes</div>
+            </div>
+            <div class="galeria-item">
+                <img src="img/hero.jpg" alt="PetFlow">
+                <div class="galeria-overlay">PetFlow Arg</div>
+            </div>
+        </div>
     </section>
 
     <section id="sobre-nosotros">
@@ -79,6 +107,13 @@
         <p>PetFlow Arg - Accesorios y juguetes para perros</p>
         <p>Envíos a toda Argentina. Lunes a sábado.</p>
     </footer>
+
+    <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+    <a href="https://wa.me/542235374072?text=Hola!%20Quiero%20consultar%20sobre%20productos%20de%20PetFlow%20🐾"
+        class="btn-whatsapp" target="_blank" title="Chateá con nosotros">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+
     <script src="script.js"></script>
 </body>
 
